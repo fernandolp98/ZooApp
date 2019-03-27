@@ -1,0 +1,339 @@
+
+body{
+background-color: #F8F4E3;
+font-family: 'Lato', sans-serif;
+margin: 0;
+}
+
+.logo{
+background-color: #AFC97E;
+text-align: center;
+padding-top: 8px;
+padding-bottom: 8px;
+}
+
+.logo img{
+width: 100px;
+height: 100px;
+}
+/* atributos de los iconos login, registro, fb y tw*/
+.social{
+background-color: #AFC97E;
+font-size: 28px;
+position: absolute;
+top: 40px;
+right: 30px;
+}
+
+.social a{
+color: #45503B;
+margin-right: 10px;
+text-decoration: none;
+}
+/* atributos que maneja barra de navegación*/
+.main-menu{
+text-align: center;
+}
+
+.main-menu ul{
+list-style: none;
+}
+
+.main-menu ul li{
+display: inline-block;
+margin: 5px 10px;
+}
+
+.main-menu ul li a{
+color: #45503B;
+font-weight: 700;
+padding-left: 5px;
+padding-right: 5px;
+padding-bottom: 5px;
+text-decoration: none;
+transition: all 0.2s ease-in;
+}
+
+.main-menu ul li a:hover{
+color: #877B66;
+border-bottom: 2px solid #45503B;
+
+}
+
+/* imagen principal del index*/
+.slider img{
+width: 100%;
+
+}
+
+/* atributos de información importante*/
+.container {
+max-width: 1170px;
+overflow: hidden;
+margin: 0 auto;
+
+}
+
+.info-importante .container{
+display: flex;
+justify-content: space-around;
+}
+.card{
+border: 1px solid #D6D2D2;
+border-radius: 5px;
+overflow: hidden;
+width: 30%;
+}
+
+.card-hero{
+position: relative;
+}
+
+.card-hero img{
+width: 100%;
+}
+
+.btn-card-show{
+background-color: #FFB606;
+color: white;
+text-align: center;
+padding-top: 10px;
+padding-bottom: 10px;
+width: 100px;
+height:20px;
+display: none;
+text-decoration: none;
+position: absolute;
+top: 50%;
+left: 50%;	
+margin-top: -10px;
+margin-left: -50px;  
+}
+
+.btn-card-show:hover {
+background-color: #e0a006;
+}
+
+.card-hero:hover .btn-card-show{
+display: block;
+}
+
+.card-title {
+text-align: center;
+}
+
+.card-title::after {
+content: '';
+background: #1CA311;
+height: 2px;
+width: 60%;
+display: block;
+margin: 0 auto;
+margin-top: 6px;
+width: 60%;
+height: 1px;
+}
+
+.card-list {
+color: #999999;
+list-style: none;
+text-align: center;
+padding-left: 0;
+}
+
+.card-list li{
+padding-bottom: 5px;
+}
+
+.contact .container{
+display: flex;
+justify-content: space-around;
+}
+
+.title-section {
+text-align: center;
+font: 30px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+
+
+
+.title-info-importante {
+color: #45503B;
+}
+
+.title-contact {
+color: white;
+background-color: #8DABC2;
+}
+
+/* atributos de la pantalla de contacto*/
+.contact-form{
+width: 400px;
+text-align: center;
+margin: 0 auto;
+}
+.contact-form img {
+width: 100%;
+}
+
+.contact-form{
+display: flex;
+flex-direction: column;
+padding: 0 20px 30px;
+}
+
+.contact-form input type=text{
+display: block;
+}
+
+.form-control{
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+width: 100%;
+margin: 7px 0;
+padding: 10px 0;
+
+}
+
+.btn-contact {
+background-color: #AFC97E;
+color: white;
+font-size: 15px;
+border-radius: 5px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.footer {
+bottom: 0;
+width: 100%;
+background-color: #AFC97E;
+padding-bottom: 15px;
+padding-top: 15px;
+text-align: center;
+color: #F8F4E3;
+margin-top: 20px;
+}
+
+/* atributos de login*/
+
+.login{
+
+display: block;
+margin: 0 auto;
+margin-top: 1%;
+width: 400px;
+}
+
+.form-login{
+padding-bottom:  20px;
+}
+.login img{
+
+width:100%;
+}
+
+/* atributos de registro*/
+.registro img{
+width: 100%;
+}
+
+.registro{
+width: 400px;
+text-align: center;
+margin: 0 auto;
+}
+
+.registro input{
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 16px;
+width: 100%;
+margin: 7px 0;
+padding: 10px 0;
+}
+
+
+
+
+
+
+
+/* responsivo */
+
+@media screen and (max-width: 1200px){
+
+
+}
+
+@media screen and (max-width: 778px){
+
+	.main-header{
+		display: flex;
+		flex-direction: column;
+	}
+	.logo{
+		order: 2;
+	}
+	.social{
+		position: initial;
+		display: flex;
+		justify-content: flex-end;
+		order: 1;
+		padding-top: 10px;
+		padding-right: 20px;
+	}
+	.main-menu{
+		order:3;
+	}
+	.main-menu ul li{
+		display: flex;
+		text-align: center;
+	}
+	.slider img{
+		width: 100%;
+	}
+
+	.oferta-academica .container{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding-bottom: 0 15px;
+
+	}
+	.card{
+		width: 45%;
+		box-sizing: border-box;
+		margin-bottom: 20px;
+	}
+
+	.contact .container {
+		display: flex;
+		flex-direction: column;
+	}
+
+}
+
+@media screen and (max-width: 480px){
+
+
+	.card{
+		width: 50%;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
