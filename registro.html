@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<script src="js/main.js"></script>
 </head>      
 
 <body>
@@ -53,7 +54,7 @@
 				</ul>
 			</nav>
 
-	</header>
+	</header>nuevo_
 
 
 
@@ -62,20 +63,19 @@
 
 			<img src="imgs/info3.jpg">
 				<!-- CAMPOS PARA EL REGISTRO -->		
-			<input type="text" name="nombre" placeholder="Nombre">
-			<input type="text" name="amaterno" placeholder="Apellido materno">
-			<input type="text" name="apaterno" placeholder="Apellido paterno">
-			<input type="email" name="correo" placeholder="micorreo@gmail.com">
-			<input type="password" name="contra" placeholder="Contraseña">
+			<input type="text" id="nuevo_nombre" name="nombre" placeholder="Nombre">
+			<input type="text" id="nuevo_apaterno" name="apaterno" placeholder="Apellido Paterno">
+			<input type="text" id="nuevo_amaterno"name="amaterno" placeholder="Apellido Materno">
+			<input type="email" id="nuevo_correo"name="correo" placeholder="micorreo@gmail.com">
+			<input type="password" id="nuevo_contraseña"name="contraseña" placeholder="Contraseña">
 
 			<!-- SELECCIONAR EL GENERO -->
-			<select>
-				<option value="sex">masculino</option>
-				<option value="sex">femenino</option>
-				<option value="sex">indefinido</option>
+			<select id="nuevo_sexo">
+				<option value="sexo">Masculino</option>
+				<option value="sexo">Femenino</option>
 			</select>
 			<!-- BOTON DE REGISTRO -->
-			<button> Registrarme</button>
+			<button onclick="registrarUsuario()" class = "form-control login"> Registrarme</button>
 		</div>
 
 

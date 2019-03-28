@@ -185,7 +185,7 @@ flex-direction: column;
 padding: 0 20px 30px;
 }
 
-.contact-form input type=text{
+.contact-form input [type=text]{
 display: block;
 }
 

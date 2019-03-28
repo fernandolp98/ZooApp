@@ -10,7 +10,7 @@ function Conectar(){
     $conexion = mysqli_connect($host, $user, $password, $database);
     if(!$conexion)
     {
-        echo mysqli_connect_error();
+        //echo mysqli_connect_error();
         return false;
     }
     return true;
@@ -26,7 +26,7 @@ function Enviar($query){
         return true;
     }    
     else{
-        echo $conexion->error;
+        //echo $conexion->error;
         return false;
     }
 }

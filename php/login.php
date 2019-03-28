@@ -1,4 +1,6 @@
 <?php
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
 include("conexionBD.php");
 
 //recibimos datos
@@ -20,7 +22,8 @@ try{
     }
     else
     {
-        echo $conexion->error;
+        //echo $conexion->error;
+
         echo "0";
     }
 
