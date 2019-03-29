@@ -17,11 +17,11 @@ function login() {
                 sessionStorage.setItem("sesion", this.responseText);
                 var obj = JSON.parse(this.responseText);
                 if (obj.rango == 1) {
-                    window.location.href = "index.html";
+                    window.location.href = "InicioUsuario.html";
 
                 }
                 else if(obj.rango == 0){
-
+                    window.location.href = "InicioAdministrador.html";
                 }
             }
         }
@@ -47,6 +47,6 @@ function sesionUsuario() {
         document.getElementById('nombreUsuario').innerHTML = str.nombre;
     }
     else {
-        window.location.href = "usuario.html";
+        window.location.href = "index.html";
     }
 }
