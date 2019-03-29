@@ -37,7 +37,7 @@ function sesionAdministador() {
         document.getElementById('nombreUsuario').innerHTML = str.nombre;
     }
     else {
-        window.location.href = "administrador.html";
+        window.location.href = "index.html";
     }
 }
 function sesionUsuario() {
