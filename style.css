@@ -208,6 +208,28 @@ padding-top: 10px;
 padding-bottom: 10px;
 }
 
+.botones{
+
+	margin-right: 20%;
+}
+
+.eliminar{
+
+	margin-right: 10px;
+	background-color: #f44242;
+}
+
+.modificar{
+
+	background-color: #bab6b6;
+}
+
+.administrador {
+padding: 2%;
+border: 2px solid #bab6b6;
+
+}
+
 .footer {
 bottom: 0;
 width: 100%;
@@ -256,7 +278,6 @@ width: 100%;
 margin: 7px 0;
 padding: 10px 0;
 }
-
 
 
 
