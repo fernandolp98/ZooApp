@@ -28,10 +28,9 @@ function registrarUsuario() {
     xmlhttp.open("POST", HOST + 'registrarUsuario.php', true);
     xmlhttp.send(data);
 }
-function EliminarUsuario(cooreo) {
+function eliminarUsuario(correo) {
     data = new FormData();
     data.append("correo", correo);
-
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -41,11 +40,67 @@ function EliminarUsuario(cooreo) {
                 alert("No se pudo eliminar el registro.");
             }
             else {
-                alert("Se eliminò el registro correctamente.");
+                alert("Se eliminó el registro correctamente.");
+                mostrarUsuarios();
             }
         }
     }
     //dir del server a donde se va a conectar
-    xmlhttp.open("POST", HOST + 'EliminarUsuario.php', true);
+    xmlhttp.open("POST", HOST + 'eliminarUsuario.php', true);
     xmlhttp.send(data);
 }
+
+function modificarUsuario(correo) {
+    data = new FormData();
+    data.append("correo", correo);
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            if (this.responseText == "0") {
+                alert("No se pudo eliminar el registro.");
+            }
+            else {
+                alert("Se eliminó el registro correctamente.");
+                mostrarUsuarios();
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'eliminarUsuario.php', true);
+    xmlhttp.send(data);
+}
+
+function actualizarDatosUsuario(){
+
+
+}
+
+function mostrarUsuarios() {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se puede mostrar el contenido.");
+            }
+            else {
+
+                var obj = JSON.parse(this.responseText);
+
+                var html = "";
+                obj.forEach(element => {
+                    html += "<div style=\"margin-top: 10px;\" class=\"administrador\">" + element.nombre + "<br>" + element.correo + "<div style=\"float: right;\" class=\"botones\"><button class=\"btn-contact modificar\" onclick=\"eliminarUsuario('" + element.correo + "')\"> Eliminar </button><button class=\"btn-contact eliminar\" onclick=\"modificarUsuario(" + element.correo + ")\"> Modificar </button></div></div>";
+                });
+
+
+                document.getElementById('administradores').innerHTML = html;
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("GET", HOST + 'mostrarUsuarios.php', true);
+    xmlhttp.send();
+}
+
+
