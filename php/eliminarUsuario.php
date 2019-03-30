@@ -5,7 +5,7 @@ include('conexionBD.php');
 
 if(Conectar())
 {
-    $query = "DELETE FROM usuaio WHERE correo = '$correo'";
+    $query = "DELETE FROM usuario WHERE correo = '$correo'";
 
     if(Enviar($query))
     {

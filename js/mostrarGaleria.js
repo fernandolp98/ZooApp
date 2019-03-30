@@ -10,12 +10,11 @@ function mostrarGaleria() {
                 alert("No se puede mostrar el contenido.");
             }
             else {
-
                 var obj = JSON.parse(this.responseText);
 
                 var html = "";
                 obj.forEach(element => {
-                    html += "<img src=\"" + element.imagen + "\" title=\"" + element.nombre + "\" style=\"height: 200px; width: auto;\"></br>";
+                    html += "<div class=\"card\"><div class=\"card-hero\"><img src=\"" + element.imagen + "\"></div><div class=\"card-body\"><h3 class=\"card-title\">" + element.nombre + "</h3></div></div>";
                 });
                 document.getElementById('galeria_animales').innerHTML = html;
             }
@@ -25,3 +24,5 @@ function mostrarGaleria() {
     xmlhttp.open("GET", HOST + 'mostrarAnimales.php', true);
     xmlhttp.send();
 }
+
+
