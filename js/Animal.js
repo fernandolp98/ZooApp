@@ -4,15 +4,15 @@ document.querySelector("head").appendChild(s);
 
 function registraAnimal() {
     data = new FormData();
-    data.append("nombre", document.getElementById('nuevo_correo').value);
-    data.append("nombre_cientifico", document.getElementById('nuevo_nombre_cientifico').value);
-    data.append("clase", document.getElementById('nuevo_clase').value);
-    data.append("orden", document.getElementById('nuevo_informacion').value);
-    data.append("habitad", document.getElementById('nuevo_habitad').value);
-    data.append("descripcion", document.getElementById('nuevo_descripcion').value);
-    data.append("existencia", document.getElementById('nuevo_existencia').value);
-    data.append("zona", document.getElementById('nuevo_zona').value);
-    data.append("imagen", document.getElementById('nuevo_imagen').selectedIndex);
+    data.append("nombre", document.getElementById('nombre').value);
+    data.append("nombre_cientifico", document.getElementById('nombre_cientifico').value);
+    data.append("clase", document.getElementById('clase').value);
+    data.append("orden", document.getElementById('orden').value);
+    data.append("habitad", document.getElementById('habitad').value);
+    data.append("descripcion", document.getElementById('descripcion').value);
+    data.append("existencia", document.getElementById('existencia').value);
+    data.append("zona", document.getElementById('zona').value);
+    data.append("imagen", document.getElementById('imagenAnimal').getAttribute('src'));
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -30,6 +30,16 @@ function registraAnimal() {
     xmlhttp.open("POST", HOST + 'registrarAnimal.php', true);
     xmlhttp.send(data);
 }
+function cargarImagenAnimal(){
+    element = document.getElementById('imagen');
+    var file = element.files[0];
+    var render = new FileReader();
+    render.onload = function () {
+        document.getElementById('imagenAnimal').setAttribute('src', render.result);
+        console.log(algo)
+    }
+   render.readAsDataURL(file);
+}
 function eliminarAnimal(id) {
     data = new FormData();
     data.append("id", id);
@@ -44,6 +54,7 @@ function eliminarAnimal(id) {
             }
             else {
                 alert("Se eliminò el registro correctamente.");
+                window.location.href = "gestionAnimal.html"
             }
         }
     }
@@ -62,15 +73,45 @@ function mostrarAnimales() {
             else {
 
                 var obj = JSON.parse(this.responseText);
-
-                var html = "<ul class=\"list\">";
+                var html = "";
                 obj.forEach(element => {
-                    html += "<li class=\"list-item list-item--tappable\" onclick=\"alert('" + element.nombre + "')\"><div class=\"list-item__left\"><img class=\"list-item__thumbnail\" src=" + element.imagen + "></div>" +
-                        "<div class=\"list-item__center\"><div class=\"list-item__title\">" + element.nombre + "</div>" +
-                        "<div class=\"list-item__subtitle\">" + element.nombre_cientifico + "</div></li>";
+                     html += "<div class=\"administrador\" onclick=\"alert('"+ element.nombre+"')\">";
+
+                    html += "<img src=\""+ element.imagen+"\" alt=\"Avatar\" style=\"border-radius: 50%; height: 50px; width: 50px\">" + element.nombre + "</div><br>";
                 });
-                html += "</ul>"
                 document.getElementById('mostrar_animales').innerHTML = html;
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("GET", HOST + 'mostrarAnimales.php', true);
+    xmlhttp.send();
+}
+
+function prueba(){
+    var file = document.getElementById('imagen').files[0];
+    console.log(file);
+    fileToBase64(file)
+
+}
+function mostrarAnimalesGestion(){
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se puede mostrar el contenido.");
+            }
+            else {
+
+                var obj = JSON.parse(this.responseText);
+
+                var html = "";
+                obj.forEach(element => {
+                    html += "<div style=\"margin-top: 10px;\" class=\"administrador\">" + element.nombre + "<br>" + element.nombre_cientifico + "<div style=\"float: right;\" class=\"botones\"><button class=\"btn-contact modificar\" onclick=\"eliminarAnimal('" + element.id_animal + "')\"> Eliminar </button><button class=\"btn-contact eliminar\" onclick=\"modificarAnimal('" + element.id_animal + "')\"> Modificar </button></div></div>";
+                });
+
+
+                document.getElementById('animales').innerHTML = html;
             }
         }
     }

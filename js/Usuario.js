@@ -2,20 +2,19 @@ var s = document.createElement("script");
 s.src = "js/main.js";
 document.querySelector("head").appendChild(s);
 
-function registrarUsuario() {
+function registrarUsuario(rango) {
     data = new FormData();
-    data.append("correo", document.getElementById('nuevo_correo').value);
-    data.append("contraseña", document.getElementById('nuevo_contraseña').value);
-    data.append("nombre", document.getElementById('nuevo_nombre').value);
-    data.append("apaterno", document.getElementById('nuevo_apaterno').value);
-    data.append("amaterno", document.getElementById('nuevo_amaterno').value);
-    data.append("sexo", document.getElementById('nuevo_sexo').selectedIndex);
-    data.append("rango", 1);
+    data.append("correo", document.getElementById('correo').value);
+    data.append("contraseña", document.getElementById('contraseña').value);
+    data.append("nombre", document.getElementById('nombre').value);
+    data.append("apaterno", document.getElementById('apaterno').value);
+    data.append("amaterno", document.getElementById('amaterno').value);
+    data.append("sexo", document.getElementById('sexo').selectedIndex);
+    data.append("rango", rango);
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             if (this.responseText == "0") {
                 alert("No se pudo agregar el registro.");
             }
@@ -28,14 +27,13 @@ function registrarUsuario() {
     xmlhttp.open("POST", HOST + 'registrarUsuario.php', true);
     xmlhttp.send(data);
 }
-function eliminarUsuario(correo) {
+function eliminarUsuario(id) {
     data = new FormData();
-    data.append("correo", correo);
+    data.append("id_usuario", id);
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             if (this.responseText == "0") {
                 alert("No se pudo eliminar el registro.");
             }
@@ -50,32 +48,74 @@ function eliminarUsuario(correo) {
     xmlhttp.send(data);
 }
 
-function modificarUsuario(correo) {
+function modificarUsuario(id) {
+    localStorage.setItem("usuarioModificar", id);
+    window.location.href = "modificarUsuario.html"
+}
+
+function buscarUsuario(){
+    var idUsuario = localStorage.getItem("usuarioModificar");
     data = new FormData();
-    data.append("correo", correo);
+    data.append("id_usuario", idUsuario);
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             if (this.responseText == "0") {
-                alert("No se pudo eliminar el registro.");
+                alert('Ocurrió un problema al cargar el usuario');
             }
             else {
-                alert("Se eliminó el registro correctamente.");
-                mostrarUsuarios();
+                cargarUsuario(JSON.parse(this.responseText));
             }
         }
     }
     //dir del server a donde se va a conectar
-    xmlhttp.open("POST", HOST + 'eliminarUsuario.php', true);
+    xmlhttp.open("POST", HOST + 'buscarUsuario.php', true);
     xmlhttp.send(data);
 }
+function cargarUsuario(usuario){
+    document.getElementById('nombre').value = usuario.nombre;
+    document.getElementById('apaterno').value = usuario.apaterno;
+    document.getElementById('amaterno').value = usuario.amaterno;
+    document.getElementById('correo').value = usuario.correo;
+    document.getElementById('contraseña').value = usuario.password;
+    document.getElementById('sexo').selectedIndex = usuario.sexo;
+    document.getElementById('rango').selectedIndex = usuario.rango;
+}
+
 
 function actualizarDatosUsuario(){
+    data = new FormData();
+    data.append("id_usuario", localStorage.getItem('usuarioModificar'));
+    data.append("correo", document.getElementById('correo').value);
+    data.append("contraseña", document.getElementById('contraseña').value);
+    data.append("nombre", document.getElementById('nombre').value);
+    data.append("apaterno", document.getElementById('apaterno').value);
+    data.append("amaterno", document.getElementById('amaterno').value);
+    data.append("sexo", document.getElementById('sexo').selectedIndex);
+    data.append("rango", document.getElementById('rango').selectedIndex);
 
-
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            if (this.responseText == "0") {
+                alert("No se pudo actualizar el registro.");
+            }
+            else {
+                alert("Se actualizó el registro correctamente.");
+                localStorage.removeItem('usuarioModificar');
+                window.location.href = "gestionAdmin.html"
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'ModificarUsuario.php', true);
+    xmlhttp.send(data);
 }
+
+
+
 
 function mostrarUsuarios() {
     xmlhttp = new XMLHttpRequest();
@@ -90,7 +130,7 @@ function mostrarUsuarios() {
 
                 var html = "";
                 obj.forEach(element => {
-                    html += "<div style=\"margin-top: 10px;\" class=\"administrador\">" + element.nombre + "<br>" + element.correo + "<div style=\"float: right;\" class=\"botones\"><button class=\"btn-contact modificar\" onclick=\"eliminarUsuario('" + element.correo + "')\"> Eliminar </button><button class=\"btn-contact eliminar\" onclick=\"modificarUsuario(" + element.correo + ")\"> Modificar </button></div></div>";
+                    html += "<div style=\"margin-top: 10px;\" class=\"administrador\">" + element.nombre + "<br>" + element.correo + "<div style=\"float: right;\" class=\"botones\"><button class=\"btn-contact modificar\" onclick=\"eliminarUsuario('" + element.id_usuario + "')\"> Eliminar </button><button class=\"btn-contact eliminar\" onclick=\"modificarUsuario('" + element.id_usuario + "')\"> Modificar </button></div></div>";
                 });
 
 

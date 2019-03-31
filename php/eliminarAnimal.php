@@ -5,7 +5,7 @@ include('conexionBD.php');
 
 if(Conectar())
 {
-    $query = "DELETE FROM animal WHERE usuario = '$id'";
+    $query = "DELETE FROM animal WHERE id_animal = '$id'";
 
     if(Enviar($query))
     {
