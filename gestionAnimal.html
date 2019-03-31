@@ -9,10 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-
+	<script src="js/Animal.js"></script>
 </head>      
 
-<body>
+<body onload="mostrarAnimalesGestion()">
 
 	<!-- EMPIEZA EL HEADER -->
 
@@ -60,65 +60,10 @@
  <a href="agregarAnimal.html"><button class="btn-contact admin">Agregar Animal</button></a>
 
 
-	<div class="administradores">
-
-		<div style="margin-top: 10px; " class="administrador">
-			
-			José Humberto Mendoza Willars <br>
-			jhmwillars@gmail.com 
-
-			<div style="float: right;" class="botones">
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>	
-			</div>	
-		</div>
-
-		<div style="margin-top: 10px; " class="administrador">
-			
-			Hector Uriel Becerra Sandoval <br>
-			soyputo@gmail.com 
-
-			<div style="float: right;" class="botones">
-
-			<button class="btn-contact eliminar"> Eliminar </button>
-			<button class="btn-contact modificar"> Modificar </button>	
-
-			</div>
-		
-
-
-
-
-</div>
-
-<div style="margin-top: 10px; " class="administrador">
-			
-			José Humberto Mendoza Willars <br>
-			jhmwillars@gmail.com 
-
-			<div style="float: right;" class="botones">
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>	
-			</div>	
-		</div>
-
-		<div style="margin-top: 10px; " class="administrador">
-			
-			Hector Uriel Becerra Sandoval <br>
-			soyputo@gmail.com 
-
-			<div style="float: right;" class="botones">
-
-			<button class="btn-contact eliminar"> Eliminar </button>
-			<button class="btn-contact modificar"> Modificar </button>	
-
-			</div>
+	<div class="administradores" id="animales">
 
 
 	</div>
-
-
-
 
 
 	<!-- FOOTER -->

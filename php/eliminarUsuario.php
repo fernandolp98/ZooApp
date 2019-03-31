@@ -1,11 +1,11 @@
 <?php
-$correo=$_POST['correo'];
+$id_usuario=$_POST['id_usuario'];
 
 include('conexionBD.php');
 
 if(Conectar())
 {
-    $query = "DELETE FROM usuario WHERE correo = '$correo'";
+    $query = "DELETE FROM usuario WHERE id_usuario = '$id_usuario'";
 
     if(Enviar($query))
     {

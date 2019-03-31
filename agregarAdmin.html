@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html LANG="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,10 +8,13 @@
 
 	<title>ZooAPP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<script src="js/Usuario.js"></script>
 
-</head>      
+
+</head>
 
 <body>
 
@@ -19,58 +23,60 @@
 			<a href="index.html"><img src="imgs/logo.png" alt="Logo del zoologicogdl"> </a>
 		</div>
 
-	
-		
-			<div class="social">
-				<a title="Cerrar sesión" id="login" href="login.html">
+
+
+		<div class="social">
+			<a title="Cerrar sesión" id="login" href="login.html">
 				<i class="fas fa-sign-in-alt"></i>
 			</a>
 
 			<a title="Registrarse" id="registro" href="registro.html">
-					<i class="fas fa-user-plus"></i>
+				<i class="fas fa-user-plus"></i>
 			</a>
 
-				<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
-					<i class="fab fa-facebook-square"></i>
-				</a>
+			<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
+				<i class="fab fa-facebook-square"></i>
+			</a>
 
-				<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
-					<i class="fab fa-twitter-square"></i>
-			</div>
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html" >Inicio</a></li>
-					<li><a href="animales.html" >Animales</a></li>
-					<li><a href="galeria.html" >Galeria</a></li>
-					<li><a href="configuración.html">Configuración</a></li>
-					<li><a href="paquetes.html" >Paquetes</a></li>
-					<li><a href="horarios.html" >Horarios</a></li>
-					<li><a href="contacto.html" >Contacto</a></li>
-				</ul>
-			</nav>
+			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
+				<i class="fab fa-twitter-square"></i>
+		</div>
+		<nav class="main-menu">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="animales.html">Animales</a></li>
+				<li><a href="galeria.html">Galeria</a></li>
+				<li><a href="configuración.html">Configuración</a></li>
+				<li><a href="paquetes.html">Paquetes</a></li>
+				<li><a href="horarios.html">Horarios</a></li>
+				<li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</nav>
 
 	</header>
 
 	<div class="registro">
 
-			<img src="imgs/publi.png">
-			
-				<!-- CAMPOS PARA EL REGISTRO -->	
-			<input type="text" name="nombre" placeholder="Nombre">
-			<input type="text" name="apaterno" placeholder="Apellido paterno">
-			<input type="text" name="amaterno" placeholder="Apellido paterno">
-			<input type="text" name="correo" placeholder="Correo">
-			<select class="selectRegistro">
-				<option>Masculino</option>
-				<option>Femenino</option>
-			</select>
-			<!-- BOTON DE REGISTRO -->
-			<button onclick="registrarUsuario()" class = "form-control login"> Registrarme</button>
-</div>
+		<img src="imgs/publi.png">
 
-	
+		<!-- CAMPOS PARA EL REGISTRO -->
+		<input type="text" id="nombre" name="nombre" placeholder="Nombre">
+		<input type="text" id="apaterno" name="apaterno" placeholder="Apellido Paterno">
+		<input type="text" id="amaterno" name="amaterno" placeholder="Apellido Materno">
+		<input type="email" id="correo" name="correo" placeholder="micorreo@gmail.com">
+		<input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
+		<select id="sexo" class="selectRegistro">
+			<option>Masculino</option>
+			<option>Femenino</option>
+		</select>
+		<!-- BOTON DE REGISTRO -->
+		<button onclick="registrarUsuario(0)" class="form-control login"> Registrar</button>
+	</div>
+
+
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
 </body>
+
 </html>
