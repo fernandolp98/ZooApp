@@ -20,6 +20,7 @@ function registrarUsuario(rango) {
             }
             else {
                 alert("Se agregó el registro correctamente.");
+                window.location.href = "gestionAdmin.html";
             }
         }
     }
@@ -39,7 +40,7 @@ function eliminarUsuario(id) {
             }
             else {
                 alert("Se eliminó el registro correctamente.");
-                mostrarUsuarios();
+                window.location.href = "gestionAdmin.html"
             }
         }
     }

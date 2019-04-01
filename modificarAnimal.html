@@ -15,7 +15,7 @@
 
 </head>
 
-<body onload="actualizaSelectZonas(); buscarAnimal(1)">
+<body onload="validaSesion(0); actualizaSelectZonas(); buscarAnimal(1)">
 
 	<header class="main-header">
 		<div class="logo">
@@ -25,12 +25,8 @@
 
 
 		<div class="social">
-			<a title="Cerrar sesión" id="login" href="login.html">
-				<i class="fas fa-sign-in-alt"></i>
-			</a>
-
-			<a title="Registrarse" id="registro" href="registro.html">
-				<i class="fas fa-user-plus"></i>
+			<a id="linkSesion" title="Iniciar sesión" id="login" href="login.html">
+				<i id="iconoSesion" class="fas fa-sign-in-alt"></i>
 			</a>
 
 			<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
@@ -39,17 +35,10 @@
 
 			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
 				<i class="fab fa-twitter-square"></i>
+			</a>
+
 		</div>
-		<nav class="main-menu">
-			<ul>
-				<li><a href="index.html">Inicio</a></li>
-				<li><a href="animales.html">Animales</a></li>
-				<li><a href="galeria.html">Galeria</a></li>
-				<li><a href="configuración.html">Configuración</a></li>
-				<li><a href="paquetes.html">Paquetes</a></li>
-				<li><a href="horarios.html">Horarios</a></li>
-				<li><a href="contacto.html">Contacto</a></li>
-			</ul>
+		<nav class="main-menu" id="menu">
 		</nav>
 
 	</header>
@@ -59,7 +48,8 @@
 
 		<img src="imgs/publi.png">
 		<!-- CAMPOS PARA EL REGISTRO -->
-		<input style="background-color: white;" onchange="cargarImagenAnimal()" type="file" id="imagen" name="subirArchivo">
+		<input style="background-color: white;" onchange="cargarImagenAnimal()" type="file" id="imagen"
+			name="subirArchivo">
 		<img style="width: 100 px; height: auto;" id="imagenAnimal">
 		<input type="text" id="nombre" name="nombre" placeholder="Nombre">
 		<input type="text" id="nombre_cientifico" name="cientiico" placeholder="Nombre cientifico">

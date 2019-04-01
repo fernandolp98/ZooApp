@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html LANG="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,12 +8,13 @@
 
 	<title>ZooAPP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 	<script src="js/Animal.js"></script>
-</head>      
+</head>
 
-<body onload="mostrarAnimalesGestion()">
+<body onload=" validaSesion(0); mostrarAnimalesGestion()">
 
 	<!-- EMPIEZA EL HEADER -->
 
@@ -24,40 +26,32 @@
 		</div>
 		<!-- ICONOS DE LOGIN,REGISTRO,FACEBOOK Y TWITTER -->
 
-		<div class="social">
-			<a title="Cerrar sesión" id="login" href="index.html">
-			<i class="fas fa-sign-in-alt"></i>
-		</a>
+		<div class="social" id="social">
 
-		<a title="Registrarse" id="registro" href="registro.html">
-			<i class="fas fa-user-plus"></i>
-		</a>
+			<a id="linkSesion" title="Iniciar sesión" id="login" href="login.html">
+				<i id="iconoSesion" class="fas fa-sign-in-alt"></i>
+			</a>
 
-		<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
-			<i class="fab fa-facebook-square"></i>
-		</a>
+			<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
+				<i class="fab fa-facebook-square"></i>
+			</a>
 
-		<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
-			<i class="fab fa-twitter-square"></i>
+			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
+				<i class="fab fa-twitter-square"></i>
+			</a>
 		</div>
 
 		<!-- OPCOONES DE NAVEGACIÓN  -->
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html" >Inicio</a></li>
-					<li><a href="animales.html" >Animales</a></li>
-					<li><a href="galeria.html" >Galeria</a></li>
-					<li><a href="configuración.html">Configuración</a></li>
-					<li><a href="paquetes.html" >Paquetes</a></li>
-					<li><a href="horarios.html" >Horarios</a></li>
-					<li><a href="contacto.html" >Contacto</a></li>
-				</ul>
-			</nav>
+		<nav class="main-menu" id="menu">
+			<ul>
+
+			</ul>
+		</nav>
 	</header>
 
 
 
- <a href="agregarAnimal.html"><button class="btn-contact admin">Agregar Animal</button></a>
+	<a href="agregarAnimal.html"><button class="btn-contact admin">Agregar Animal</button></a>
 
 
 	<div class="administradores" id="animales">
@@ -71,4 +65,5 @@
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
 </body>
+
 </html>

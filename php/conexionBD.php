@@ -3,7 +3,7 @@ $conexion;
 function Conectar(){
     $host = "localhost";
     $user = "root";
-    $password = "";
+    $password = "root";
     $database = "zooapp";
     error_reporting(1);
     global $conexion;

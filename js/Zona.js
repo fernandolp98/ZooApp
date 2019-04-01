@@ -8,7 +8,6 @@ function registrarZona() {
     data.append("descripcion", document.getElementById('descripcion').value);
     data.append("imagen", document.getElementById('imagenZona').getAttribute('src'));
 
-
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -17,6 +16,8 @@ function registrarZona() {
             }
             else {
                 alert("Se agregó el registro correctamente.");
+                window.location.href = "gestionZona.html"
+
             }
         }
     }
@@ -163,6 +164,17 @@ function cargarInfoZona(zona) {
     document.getElementById('descripcion').innerHTML = zona.descripcion;
     document.getElementById('imagenZona').setAttribute('src', zona.imagen);
 
+}
+
+function cargarImagenZona() {
+    element = document.getElementById('imagen');
+    var file = element.files[0];
+    var render = new FileReader();
+    render.onload = function () {
+        document.getElementById('imagenZona').setAttribute('src', render.result);
+        console.log(algo)
+    }
+    render.readAsDataURL(file);
 }
 function eliminarDatos() {
     localStorage.removeItem('zona');
