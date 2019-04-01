@@ -368,6 +368,13 @@ width: 80%;
 #nombrezona{
 
 	font-size: 30px;
+	cursor: hand;
+
+}
+#nombrezona :hover{
+	font-size: 20px;
+	cursor: hand;
+
 }
 /* responsivo */
 

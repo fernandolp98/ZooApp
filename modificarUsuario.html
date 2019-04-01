@@ -6,13 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="logo.png">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-sale=1.0, minimun-scale=1.0">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-sale=1.0, minimun-scale=1.0">
 	<title>ZooAPP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 	<script src="js/Usuario.js"></script>
-</head>      
+</head>
 
 <body onload="buscarUsuario()">
 
@@ -21,8 +23,8 @@
 		<div class="logo">
 			<img src="imgs/logo.png" alt="Logo del zoologicogdl">
 		</div>
-	
-		
+
+
 		<div class="social">
 			<a title="Cerrar sesión" id="login" href="index.html">
 				<i class="fas fa-sign-in-alt"></i>
@@ -40,50 +42,52 @@
 				<i class="fab fa-twitter-square"></i>
 			</a>
 
-			</div>
+		</div>
 
-			<!-- OPCIONES DE NAVEGACIÓN -->
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html" >Inicio</a></li>
-					<li><a href="animales.html" >Animales</a></li>
-					<li><a href="galeria.html" >Galeria</a></li>
-					<li><a href="paquetes.html" >Paquetes</a></li>
-					<li><a href="horarios.html" >Horarios</a></li>
-					<li><a href="contacto.html" >Contacto</a></li>
-				</ul>
-			</nav>
+		<!-- OPCIONES DE NAVEGACIÓN -->
+		<nav class="main-menu">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="animales.html">Animales</a></li>
+				<li><a href="galeria.html">Galeria</a></li>
+				<li><a href="paquetes.html">Paquetes</a></li>
+				<li><a href="horarios.html">Horarios</a></li>
+				<li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</nav>
 
 	</header>
 
 
 
-		<!-- INICIA REGISTRO ACOMPAÑADOS DE UNA IMAGEN -->	
-		<div class="registro">
+	<!-- INICIA REGISTRO ACOMPAÑADOS DE UNA IMAGEN -->
+	<div class="registro">
 
-			<img src="imgs/info3.jpg">
-				<!-- CAMPOS PARA EL REGISTRO -->		
-			Nombre<input type="text" id="nombre" name="nombre" placeholder="Nombre">
-			Apellido Paterno<input type="text" id="apaterno" name="apaterno" placeholder="Apellido Paterno">
-			Apellido Materno<input type="text" id="amaterno"name="amaterno" placeholder="Apellido Materno">
-			Correo<input type="email" id="correo"name="correo" placeholder="micorreo@gmail.com">
-			Contraseña<input type="password" id="contraseña"name="contraseña" placeholder="Contraseña">
+		<img src="imgs/info3.jpg">
+		<!-- CAMPOS PARA EL REGISTRO -->
+		Nombre<input type="text" id="nombre" name="nombre" placeholder="Nombre">
+		Apellido Paterno<input type="text" id="apaterno" name="apaterno" placeholder="Apellido Paterno">
+		Apellido Materno<input type="text" id="amaterno" name="amaterno" placeholder="Apellido Materno">
+		Correo<input type="email" id="correo" name="correo" placeholder="micorreo@gmail.com">
+		Contraseña<input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
 
-			<!-- SELECCIONAR EL GENERO -->
-			<select id="sexo">
-				<option value="sexo">Masculino</option>
-				<option value="sexo">Femenino</option>
-			</select>
-			<select id="rango">
-					<option value="rango">Administrador</option>
-					<option value="rango">Usuario</option>
+		<!-- SELECCIONAR EL GENERO -->
+		<select id="sexo">
+			<option value="sexo">Masculino</option>
+			<option value="sexo">Femenino</option>
+		</select>
+		<select id="rango">
+			<option value="rango">Administrador</option>
+			<option value="rango">Usuario</option>
 			<!-- BOTON DE REGISTRO -->
-			<button onclick="actualizarDatosUsuario()" class = "form-control login"> Guardar</button>
-		</div>
+			<button onclick="actualizarDatosUsuario()" class="form-control login"> Guardar</button>
+		</select>
+	</div>
 
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
 
 </body>
+
 </html>

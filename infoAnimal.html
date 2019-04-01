@@ -9,10 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<script src="js/Animal.js"></script>
 
 </head>      
 
-<body>
+<body onload="buscarAnimal(2)" onbeforeunload="eliminarDatos()">
 
 	<header class="main-header">
 		<div class="logo">
@@ -60,47 +61,27 @@
 <div class="card animal">
 
 				<div class="card-animal">
-					<img src="imgs/animal.jpeg">
+					<img id="imagenAnimal">
 				</div>
 
 				<div class="card-body">
-					<h3 class="card-title">Tigre de Bengala</h3>
+					<h3 class="card-title" id="nombre"></h3>
 
 				</div>
 
 				<p>
-					
-					<label>Nombre científico</label>  Panthera tigris tigris <br>
-					<label>Clase: </label> Mammalia<br>
-					<label>Orden: </label> Carnívora <br>
-					<label>Habitad: </label> Bosques tropicales, bosques perennifolios, pantanos, praderas y zonas rocosas<br>
-					<label>Zona: </label> Sector 6<br>
+					<label style="color:darkgreen; font-size: 20px">Nombre científico: <br></label><label id="nombre_cientifico"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Clase: <br></label> <label id="clase"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Orden: <br></label> <label id="orden"></label> <br><br>
+					<label style="color:darkgreen; font-size: 20px">Habitad: <br></label> <label id="habitad"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px"><Zona:br></Zona:br> </label> <label id="zona"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Existencia: <br></label> <label id="existencia"></label><br><br>
+				</p >
 
-				</p>
-
-				<p style="text-align: justify;">
-					
-					Existen 6 subespecies de tigres. En esta especie la longitud corporal total es de 1.4 a 2.8, mientras la de la cola puede ser de 60 a 95 cm. El color de fondo de las partes superiores varía de anaranjado-rojizo a ocre rojizo y las partes inferiores son de tono cremoso o blanco. 
-					La cabeza, el cuerpo, la cola y las patas tienen una serie de rayas generalmente se disponen en plano vertical. En algunos especímenes, las rayas están reducidas en los hombros, patas delanteras y flanco anteriores. 
-					Para cazar el tigre depende más de la vista y del oído que en el olfato. Usualmente, acecha con cautela su presa, aproximándose de lado o por atrás hasta estar lo más cerca posible. 
-					Entonces se lanza sobre ella y trata simultáneamente de derribarla y sujetar su garganta. La muerte puede ocurrir por estrangulación o también por una mordida en el dorso del cuello. El cadáver a menudo es arrastrado hasta un área con cobertura o cerca del agua. 
-					Un tigre puede consumir más de 40 Kg de carne de una vez, lo que equivale a un quinto de su peso total. Sin embargo, este felino tiene que comer esta cantidad debido a que puede pasar varios días antes de que coma algo, a pesar de ser un excelente cazador falla en el 90 % de sus intentos. 
-					El tigre es esencialmente solitario, excepto las parejas durante el cortejo y las hembras con crías. Aun los individuos que comparten un territorio generalmente se mantienen separados de 2 a 5 Km. sin embargo el tigre no es insociable y los individuos de un área determinada pueden conocerse uno a otro y tengan una relación generalmente amigable. 
-					Los nacimientos ocurren en una cueva, una hendidura rocosa o vegetación densa. Los cachorros pesan de 780 a 1600 g al nacer y abren los ojos después de 6 o 14 días. Son amamantados de 3 a 6 meses y comienzan a viajar con la madre cuando tienen de 5 a 6 meses de edad. 
-
-				</p>
+				<p style="text-align: justify;" id="descripcion"></p>
 
 			</div>
-
-
-
-
-
 </div>
-			
-		
-		
-
 	</div>
 
 	<footer class="footer">

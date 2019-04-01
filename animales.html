@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html LANG="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,12 +8,16 @@
 
 	<title>ZooAPP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<script src="js/Animal.js"></script>
+	<script src="js/Zona.js"></script>
 
-</head>      
 
-<body>
+</head>
+
+<body onload="mostrarAnimales(); actualizaSelectZonas()">
 
 	<!-- EMPIEZA EL HEADER -->
 
@@ -26,190 +31,62 @@
 
 		<div class="social">
 			<a title="Cerrar sesión" id="login" href="index.html">
-			<i class="fas fa-sign-in-alt"></i>
-		</a>
+				<i class="fas fa-sign-in-alt"></i>
+			</a>
 
-		<a title="Registrarse" id="registro" href="registro.html">
-			<i class="fas fa-user-plus"></i>
-		</a>
+			<a title="Registrarse" id="registro" href="registro.html">
+				<i class="fas fa-user-plus"></i>
+			</a>
 
-		<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
-			<i class="fab fa-facebook-square"></i>
-		</a>
+			<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
+				<i class="fab fa-facebook-square"></i>
+			</a>
 
-		<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
-			<i class="fab fa-twitter-square"></i>
+			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
+				<i class="fab fa-twitter-square"></i>
 		</div>
 
 		<!-- OPCOONES DE NAVEGACIÓN  -->
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html" >Inicio</a></li>
-					<li><a href="animales.html" >Animales</a></li>
-					<li><a href="galeria.html" >Galeria</a></li>
-					<li><a href="configuración.html">Configuración</a></li>
-					<li><a href="paquetes.html" >Paquetes</a></li>
-					<li><a href="horarios.html" >Horarios</a></li>
-					<li><a href="contacto.html" >Contacto</a></li>
-				</ul>
-			</nav>
+		<nav class="main-menu">
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="animales.html">Animales</a></li>
+				<li><a href="galeria.html">Galeria</a></li>
+				<li><a href="configuración.html">Configuración</a></li>
+				<li><a href="paquetes.html">Paquetes</a></li>
+				<li><a href="horarios.html">Horarios</a></li>
+				<li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</nav>
 	</header>
 
-		<div align="center">
+	<div align="center">
 
 
 
-		<select style="width: 400px;" class="selectRegistro">
-			
-			<option> zona 1</option>
-			<option> zona 2</option>
-			<option> zona 3</option>
-			<option> zona 4</option>
-
-
+		<select style="width: 400px;" class="selectRegistro" id="zona" onchange="filtrarAnimales(this.value)">
+			<option value="showAll"> Ver Todos</option>
 		</select>
 
 		<br>
 
-		<label id="nombrezona">Nombre zona</label>
-</div>
+		<a onclick="infoZona()" style="color:darkgreen; font-size: 20px;"><label id="nombrezona"></label></a>
+	</div>
 
 
 
 
 	<section class="info-importante">
 
-	<div class="container">
-
-			<!-- CADA DIV CARD LLEVA LA IMAGEN DE INFO IMPORTANTE Y SU TITULO -->
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-			<div class="card paquete">
-
-				<div class="card-hero paq">
-					<img src="imgs/animal.jpeg">
-					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
-				</div>
-
-				<div class="card-body">
-					<h3 class="card-title">Tigre de bengála</h3>
-					<!--
-								<ul class="card-list">	
-									<li>Conoce tu ruta</li>
-								</ul>
-						-->
-				</div>
-
-			</div>
-
-
-
-			
-
+		<div id="animales" class="container">
 
 		</div>
-
 	</section>
-
-
-
-
-
-
-
-
 
 	<!-- FOOTER -->
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
 </body>
+
 </html>

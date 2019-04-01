@@ -1,28 +1,30 @@
 <?php
-include("conexionBD.php");
+$id_zona=$_POST['id_zona'];
+$nombre=$_POST['nombre'];
+$nombre_cientifico=$_POST['nombre_cientifico'];
+$clase=$_POST['clase'];
+$orden=$_POST['orden'];
+$habitad=$_POST['habitad'];
+$descripcion=$_POST['descripcion'];
+$existencia=$_POST['existencia'];
+$zona=$_POST['zona'];
+$imagen=$_POST['imagen'];
 
-//conectar a la base de datos
-try{
-    Conectar();
-    global $conexion;
-    $query = "SELECT * FROM zona";
-    $result = mysqli_query($conexion, $query);
-    $array = array();
-    if(mysqli_num_rows($result) > 0)
+
+include('conexionBD.php');
+
+if(Conectar())
+{
+    $query = "UPDATE zona SET nombre = '$nombre', descripcion = '$descripcion', imagen = '$imagen' WHERE id_zona = $id_zona";
+
+    if(Enviar($query))
     {
-        while($row = mysqli_fetch_array($result)){
-            array_push($array, $row);
-        }
-       echo json_encode($array);
+        echo "1";
     }
     else
     {
         echo "0";
     }
-
-} catch(Exception $e)
-{
-    echo $e;
+    Desconectar();
 }
-Desconectar();
 ?>
