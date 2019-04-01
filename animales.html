@@ -10,40 +10,38 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/onsenui.css">
-    <link rel="stylesheet" href="css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
-	<script src="js/onsenui.min.js"></script>
-	
-	<script src="js/Animal.js"></script>
-
 </head>      
 
-<body onload="mostrarAnimales()">
+<body>
+
+	<!-- EMPIEZA EL HEADER -->
 
 	<header class="main-header">
+
+		<!-- COLOCAR EL LOGO  -->
 		<div class="logo">
 			<a href="index.html"><img src="imgs/logo.png" alt="Logo del zoologicogdl"> </a>
 		</div>
+		<!-- ICONOS DE LOGIN,REGISTRO,FACEBOOK Y TWITTER -->
 
-	
-		
-			<div class="social">
-				<a title="Iniciar sesión" id="login" href="login.html">
-				<i class="fas fa-sign-in-alt"></i>
-			</a>
+		<div class="social">
+			<a title="Cerrar sesión" id="login" href="index.html">
+			<i class="fas fa-sign-in-alt"></i>
+		</a>
 
-			<a title="Registrarse" id="registro" href="registro.html">
-					<i class="fas fa-user-plus"></i>
-			</a>
+		<a title="Registrarse" id="registro" href="registro.html">
+			<i class="fas fa-user-plus"></i>
+		</a>
 
-				<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
-					<i class="fab fa-facebook-square"></i>
-				</a>
+		<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
+			<i class="fab fa-facebook-square"></i>
+		</a>
 
-				<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
-					<i class="fab fa-twitter-square"></i>
-			</div>
+		<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
+			<i class="fab fa-twitter-square"></i>
+		</div>
+
+		<!-- OPCOONES DE NAVEGACIÓN  -->
 			<nav class="main-menu">
 				<ul>
 					<li><a href="index.html" >Inicio</a></li>
@@ -55,11 +53,161 @@
 					<li><a href="contacto.html" >Contacto</a></li>
 				</ul>
 			</nav>
-
 	</header>
 
-	<div id="mostrar_animales"></div>
+		<div align="center">
 
+
+
+		<select style="width: 400px;" class="selectRegistro">
+			
+			<option> zona 1</option>
+			<option> zona 2</option>
+			<option> zona 3</option>
+			<option> zona 4</option>
+
+
+		</select>
+
+		<br>
+
+		<label id="nombrezona">Nombre zona</label>
+</div>
+
+
+
+
+	<section class="info-importante">
+
+	<div class="container">
+
+			<!-- CADA DIV CARD LLEVA LA IMAGEN DE INFO IMPORTANTE Y SU TITULO -->
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+			<div class="card paquete">
+
+				<div class="card-hero paq">
+					<img src="imgs/animal.jpeg">
+					<a href="infoAnimal.html" class="btn-card-show">Ver mas</a>
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title">Tigre de bengála</h3>
+					<!--
+								<ul class="card-list">	
+									<li>Conoce tu ruta</li>
+								</ul>
+						-->
+				</div>
+
+			</div>
+
+
+
+			
+
+
+		</div>
+
+	</section>
+
+
+
+
+
+
+
+
+
+	<!-- FOOTER -->
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
