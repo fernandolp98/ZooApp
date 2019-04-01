@@ -10,9 +10,10 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 	<script src="js/Zona.js"></script>
+
 </head>      
 
-<body onload="buscarZona(1)">
+<body onload="buscarZonaNombre()" onbeforeunload="eliminarDatos()">
 
 	<header class="main-header">
 		<div class="logo">
@@ -22,7 +23,7 @@
 	
 		
 			<div class="social">
-				<a title="Cerrar sesión" id="login" href="login.html">
+				<a title="Cerrar sesión" id="login" href="index.html">
 				<i class="fas fa-sign-in-alt"></i>
 			</a>
 
@@ -51,21 +52,29 @@
 
 	</header>
 
-
-
-<div class="registro">
-
-			<img src="imgs/publi.png">
-				<!-- CAMPOS PARA EL REGISTRO -->	
-			<input style="background-color: white;" type="file" name="subirArchivo">
-			<img id="imagenZona">	
-			<input id="nombre" type="text" name="nombre" placeholder="Nombre">
-			<textarea id="descripcion" cols="30" rows="7" class="form-control" placeholder="Descripción"></textarea>
+	<div class="infoAnimal">
 		
-			<!-- BOTON DE REGISTRO -->
-			<button onclick="actualizarDatosZona()" class = "form-control login"> Registrarme</button>
-</div>
+<div align="center">
 	
+
+
+<div class="card animal">
+
+				<div class="card-animal">
+					<img id="imagenZona">
+				</div>
+
+				<div class="card-body">
+					<h3 class="card-title" id="nombre"></h3>
+
+				</div>
+
+				<p style="text-align: justify;" id="descripcion"></p>
+
+			</div>
+</div>
+	</div>
+
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>

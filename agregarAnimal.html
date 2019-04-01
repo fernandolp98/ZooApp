@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="actualizaSelectZonas()">
 
 	<header class="main-header">
 		<div class="logo">
@@ -70,11 +70,6 @@
 		<input type="number" id="existencia" name="existencia" placeholder="Existencia">
 
 		<select class="selectRegistro" id="zona">
-			<option>Zona</option>
-			<option>Zona 1</option>
-			<option>Zona 2</option>
-			<option>Zona 3</option>
-			<option>Zona 4</option>
 		</select>
 		<!-- BOTON DE REGISTRO -->
 		<button onclick="registraAnimal()" class="form-control login"> Registrar</button>

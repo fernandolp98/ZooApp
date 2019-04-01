@@ -30,7 +30,7 @@ function registraAnimal() {
     xmlhttp.open("POST", HOST + 'registrarAnimal.php', true);
     xmlhttp.send(data);
 }
-function cargarImagenAnimal(){
+function cargarImagenAnimal() {
     element = document.getElementById('imagen');
     var file = element.files[0];
     var render = new FileReader();
@@ -38,7 +38,7 @@ function cargarImagenAnimal(){
         document.getElementById('imagenAnimal').setAttribute('src', render.result);
         console.log(algo)
     }
-   render.readAsDataURL(file);
+    render.readAsDataURL(file);
 }
 function eliminarAnimal(id) {
     data = new FormData();
@@ -75,11 +75,9 @@ function mostrarAnimales() {
                 var obj = JSON.parse(this.responseText);
                 var html = "";
                 obj.forEach(element => {
-                     html += "<div class=\"administrador\" onclick=\"alert('"+ element.nombre+"')\">";
-
-                    html += "<img src=\""+ element.imagen+"\" alt=\"Avatar\" style=\"border-radius: 50%; height: 50px; width: 50px\">" + element.nombre + "</div><br>";
+                    html += "<div class=\"card paquete\"><div class=\"card-hero paq\"><img src=\"" + element.imagen + "\"><a onclick=\"infoAnimal('" + element.id_animal + "')\"class=\"btn-card-show\">Ver mas</a></div><div class=\"card-body\"><h3 class=\"card-title\">" + element.nombre + "</h3></div></div>";
                 });
-                document.getElementById('mostrar_animales').innerHTML = html;
+                document.getElementById('animales').innerHTML = html;
             }
         }
     }
@@ -87,7 +85,7 @@ function mostrarAnimales() {
     xmlhttp.open("GET", HOST + 'mostrarAnimales.php', true);
     xmlhttp.send();
 }
-function mostrarAnimalesGestion(){
+function mostrarAnimalesGestion() {
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -112,12 +110,12 @@ function mostrarAnimalesGestion(){
     xmlhttp.open("GET", HOST + 'mostrarAnimales.php', true);
     xmlhttp.send();
 }
-function modificarAnimal(id){
-        localStorage.setItem("animalModificar", id);
-        window.location.href = "modificarAnimal.html"
+function modificarAnimal(id) {
+    localStorage.setItem("animal", id);
+    window.location.href = "modificarAnimal.html"
 }
-function buscarAnimal(){
-    var idAnimal = localStorage.getItem("animalModificar");
+function buscarAnimal(opcion) {
+    var idAnimal = localStorage.getItem("animal");
     data = new FormData();
     data.append("id_animal", idAnimal);
 
@@ -128,7 +126,10 @@ function buscarAnimal(){
                 alert('Ocurrió un problema al cargar el usuario');
             }
             else {
-                cargarAnimal(JSON.parse(this.responseText));
+                if (opcion == 1)
+                    cargarAnimal(JSON.parse(this.responseText));
+                if (opcion == 2)
+                    cargarInfoAnimal(JSON.parse(this.responseText));
             }
         }
     }
@@ -136,8 +137,8 @@ function buscarAnimal(){
     xmlhttp.open("POST", HOST + 'buscarAnimal.php', true);
     xmlhttp.send(data);
 }
-function cargarAnimal(animal){
-   document.getElementById('nombre').value = animal.nombre;
+function cargarAnimal(animal) {
+    document.getElementById('nombre').value = animal.nombre;
     document.getElementById('nombre_cientifico').value = animal.nombre_cientifico;
     document.getElementById('clase').value = animal.clase;
     document.getElementById('orden').value = animal.orden;
@@ -148,9 +149,9 @@ function cargarAnimal(animal){
     document.getElementById('imagenAnimal').setAttribute('src', animal.imagen);
 }
 
-function actualizarDatosAnimal(){
+function actualizarDatosAnimal() {
     data = new FormData();
-    data.append("id_animal", localStorage.getItem('animalModificar'));
+    data.append("id_animal", localStorage.getItem('animal'));
     data.append("nombre", document.getElementById('nombre').value);
     data.append("nombre_cientifico", document.getElementById('nombre_cientifico').value);
     data.append("clase", document.getElementById('clase').value);
@@ -170,7 +171,6 @@ function actualizarDatosAnimal(){
             }
             else {
                 alert("Se actualizó el registro correctamente.");
-                localStorage.removeItem('animalModificar');
                 window.location.href = "gestionAnimal.html"
             }
         }
@@ -178,4 +178,84 @@ function actualizarDatosAnimal(){
     //dir del server a donde se va a conectar
     xmlhttp.open("POST", HOST + 'modificarAnimal.php', true);
     xmlhttp.send(data);
+}
+
+function infoAnimal(id) {
+    localStorage.setItem('animal', id);
+    window.location.href = "infoAnimal.html"
+
+}
+function cargarInfoAnimal(animal) {
+    document.getElementById('nombre').innerHTML = animal.nombre;
+    document.getElementById('nombre_cientifico').innerHTML = animal.nombre_cientifico;
+    document.getElementById('clase').innerHTML = animal.clase;
+    document.getElementById('orden').innerHTML = animal.orden;
+    document.getElementById('habitad').innerHTML = animal.habitad;
+    document.getElementById('descripcion').innerHTML = animal.descripcion;
+    document.getElementById('existencia').innerHTML = animal.existencia;
+    document.getElementById('zona').innerHTML = animal.zona;
+    document.getElementById('imagenAnimal').setAttribute('src', animal.imagen);
+
+}
+function eliminarDatos() {
+    localStorage.removeItem('animal');
+
+}
+
+function actualizaSelectZonas() {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se puede mostrar el contenido.");
+            }
+            else {
+
+                var obj = JSON.parse(this.responseText);
+
+                var html = document.getElementById('zona').innerHTML;
+                obj.forEach(element => {
+                    html += "<option value=\"" + element.nombre + "\">" + element.nombre + "</option>";
+                });
+
+
+                document.getElementById('zona').innerHTML = html;
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("GET", HOST + 'mostrarZonas.php', true);
+    xmlhttp.send();
+}
+
+function filtrarAnimales(value) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se puede mostrar el contenido.");
+            }
+            else {
+                var obj = JSON.parse(this.responseText);
+                var html = "";
+                obj.forEach(element => {
+                    html += "<div class=\"card paquete\"><div class=\"card-hero paq\"><img src=\"" + element.imagen + "\"><a onclick=\"infoAnimal('" + element.id_animal + "')\"class=\"btn-card-show\">Ver mas</a></div><div class=\"card-body\"><h3 class=\"card-title\">" + element.nombre + "</h3></div></div>";
+                });
+                document.getElementById('animales').innerHTML = html;
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    if (value != "showAll") {
+        data = new FormData();
+        data.append("zona", value);
+        xmlhttp.open("POST", HOST + 'mostrarAnimalesFiltrado.php', true);
+        xmlhttp.send(data);
+        document.getElementById('nombrezona').innerHTML = value;
+
+    }
+    else {
+        xmlhttp.open("GET", HOST + 'mostrarAnimales.php', true);
+        xmlhttp.send();
+    }
 }

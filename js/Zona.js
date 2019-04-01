@@ -36,7 +36,7 @@ function eliminarZona(id) {
             }
             else {
                 alert("Se eliminó el registro correctamente.");
-                gestionZona();
+                window.location.href = "gestionZona.html"
             }
         }
     }
@@ -46,12 +46,12 @@ function eliminarZona(id) {
 }
 
 function modificarZona(id) {
-    localStorage.setItem("zonaModificar", id);
+    localStorage.setItem("zona", id);
     window.location.href = "modificarZona.html"
 }
 
-function buscarZona(){
-    var idZona = localStorage.getItem("zonaModificar");
+function buscarZona() {
+    var idZona = localStorage.getItem("zona");
     data = new FormData();
     data.append("id_zona", idZona);
 
@@ -62,7 +62,7 @@ function buscarZona(){
                 alert('Ocurrió un problema al cargar el usuario');
             }
             else {
-                cargarUsuario(JSON.parse(this.responseText));
+                    cargarZona(JSON.parse(this.responseText));
             }
         }
     }
@@ -70,15 +70,37 @@ function buscarZona(){
     xmlhttp.open("POST", HOST + 'buscarZona.php', true);
     xmlhttp.send(data);
 }
-function cargarZona(zona){
+function buscarZonaNombre() {
+    var nombre = localStorage.getItem("zona");
+    data = new FormData();
+    data.append("nombre", nombre);
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert('Ocurrió un problema al cargar la zona');
+            }
+            else {
+                cargarInfoZona(JSON.parse(this.responseText));
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'buscarZonaNombre.php', true);
+    xmlhttp.send(data);
+}
+
+function cargarZona(zona) {
     document.getElementById('nombre').value = zona.nombre;
     document.getElementById('descripcion').value = zona.descripcion;
     document.getElementById('imagenZona').setAttribute('src', zona.imagen);
 }
 
 
-function actualizarDatosZona(){
+function actualizarDatosZona() {
     data = new FormData();
+    data.append("id_zona", localStorage.getItem('zona'));
     data.append("nombre", document.getElementById('nombre').value);
     data.append("descripcion", document.getElementById('descripcion').value);
     data.append("imagen", document.getElementById('imagenZona').getAttribute('src'));
@@ -98,7 +120,7 @@ function actualizarDatosZona(){
         }
     }
     //dir del server a donde se va a conectar
-    xmlhttp.open("POST", HOST + 'ModificaZona.php', true);
+    xmlhttp.open("POST", HOST + 'ModificarZona.php', true);
     xmlhttp.send(data);
 }
 
@@ -129,4 +151,20 @@ function mostrarZonas() {
     //dir del server a donde se va a conectar
     xmlhttp.open("GET", HOST + 'mostrarZonas.php', true);
     xmlhttp.send();
+}
+
+function infoZona() {
+    localStorage.setItem('zona', document.getElementById('nombrezona').innerHTML);
+    window.location.href = "infoZona.html";
+
+}
+function cargarInfoZona(zona) {
+    document.getElementById('nombre').innerHTML = zona.nombre;
+    document.getElementById('descripcion').innerHTML = zona.descripcion;
+    document.getElementById('imagenZona').setAttribute('src', zona.imagen);
+
+}
+function eliminarDatos() {
+    localStorage.removeItem('zona');
+
 }
