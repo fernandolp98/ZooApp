@@ -11,32 +11,23 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-	<script src="js/Zona.js"></script>
+	<script src="js/Animal.js"></script>
 
 </head>
 
-<body onload="mostrarZonas()">
-
-	<!-- EMPIEZA EL HEADER -->
+<body onload="buscarAnimal()">
 
 	<header class="main-header">
-
-		<!-- COLOCAR EL LOGO  -->
 		<div class="logo">
 			<a href="index.html"><img src="imgs/logo.png" alt="Logo del zoologicogdl"> </a>
 		</div>
-		<!-- ICONOS DE LOGIN,REGISTRO,FACEBOOK Y TWITTER -->
+
+
 
 		<div class="social">
-<<<<<<< HEAD
-			<a title="Cerrar sesión" id="login" href="index.html">
-			<i class="fas fa-sign-in-alt"></i>
-		</a>
-=======
 			<a title="Cerrar sesión" id="login" href="login.html">
 				<i class="fas fa-sign-in-alt"></i>
 			</a>
->>>>>>> 3ae71763112a38168f16259f8c1a9659f1dd250f
 
 			<a title="Registrarse" id="registro" href="registro.html">
 				<i class="fas fa-user-plus"></i>
@@ -49,8 +40,6 @@
 			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
 				<i class="fab fa-twitter-square"></i>
 		</div>
-
-		<!-- OPCOONES DE NAVEGACIÓN  -->
 		<nav class="main-menu">
 			<ul>
 				<li><a href="index.html">Inicio</a></li>
@@ -62,68 +51,42 @@
 				<li><a href="contacto.html">Contacto</a></li>
 			</ul>
 		</nav>
+
 	</header>
 
 
+	<div class="registro">
 
-	<a href="agregarZona.html"><button class="btn-contact admin">Agregar Zona</button></a>
+		<img src="imgs/publi.png">
+		<!-- CAMPOS PARA EL REGISTRO -->
+		<input style="background-color: white;" onchange="cargarImagenAnimal()" type="file" id="imagen" name="subirArchivo">
+		<img style="width: 100 px; height: auto;" id="imagenAnimal">
+		<input type="text" id="nombre" name="nombre" placeholder="Nombre">
+		<input type="text" id="nombre_cientifico" name="cientiico" placeholder="Nombre cientifico">
+		<input type="text" id="clase" name="clase" placeholder="Clase">
+		<input type="text" id="orden" name="orden" placeholder="Orden">
+		<input type="text" id="habitad" name="habitad" placeholder="Habitad">
+		<input type="text" id="descripcion" name="descripción" placeholder="Descripción">
+		<input type="number" id="existencia" name="existencia" placeholder="Existencia">
 
-
-	<div class="administradores" id="zonas">
-
-		<!-- <div style="margin-top: 10px; " class="administrador">
-
-			José Humberto Mendoza Willars <br>
-			jhmwillars@gmail.com
-
-			<div style="float: right;" class="botones">
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>
-			</div>
-		</div>
-
-		<div style="margin-top: 10px; " class="administrador">
-
-			Hector Uriel Becerra Sandoval <br>
-			soyputo@gmail.com
-
-			<div style="float: right;" class="botones">
-
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>
-
-			</div>
-		</div>
-
-		<div style="margin-top: 10px; " class="administrador">
-
-			José Humberto Mendoza Willars <br>
-			jhmwillars@gmail.com
-
-			<div style="float: right;" class="botones">
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>
-			</div>
-		</div>
-
-		<div style="margin-top: 10px; " class="administrador">
-
-			Hector Uriel Becerra Sandoval <br>
-			soyputo@gmail.com
-
-			<div style="float: right;" class="botones">
-
-				<button class="btn-contact eliminar"> Eliminar </button>
-				<button class="btn-contact modificar"> Modificar </button>
-
-			</div>
-
-
-		</div> -->
-
+		<select class="selectRegistro" id="zona">
+			<option>Zona</option>
+			<option>Zona 1</option>
+			<option>Zona 2</option>
+			<option>Zona 3</option>
+			<option>Zona 4</option>
+		</select>
+		<!-- BOTON DE REGISTRO -->
+		<button onclick="actualizarDatosAnimal()" class="form-control login"> Guardar</button>
 	</div>
 
-	<!-- FOOTER -->
+
+
+
+
+
+
+
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
