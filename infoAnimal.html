@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html LANG="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,58 +8,49 @@
 
 	<title>ZooAPP</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 	<script src="js/Animal.js"></script>
 
-</head>      
+</head>
 
-<body onload="buscarAnimal(2)" onbeforeunload="eliminarDatos()">
+<body onload=" validaSesion(1); buscarAnimal(2)" onbeforeunload="eliminarDatos()">
 
 	<header class="main-header">
 		<div class="logo">
 			<a href="index.html"><img src="imgs/logo.png" alt="Logo del zoologicogdl"> </a>
 		</div>
 
-	
-		
-			<div class="social">
-				<a title="Cerrar sesión" id="login" href="index.html">
-				<i class="fas fa-sign-in-alt"></i>
+		<div class="social">
+			<a id="linkSesion" title="Iniciar sesión" id="login" href="login.html">
+				<i id="iconoSesion" class="fas fa-sign-in-alt"></i>
 			</a>
 
-			<a title="Registrarse" id="registro" href="registro.html">
-					<i class="fas fa-user-plus"></i>
+			<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
+				<i class="fab fa-facebook-square"></i>
 			</a>
 
-				<a title="Visita nuestro Facebook" href="https://www.facebook.com/zoologicogdl/" target="_blank">
-					<i class="fab fa-facebook-square"></i>
-				</a>
+			<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
+				<i class="fab fa-twitter-square"></i>
+			</a>
 
-				<a title="Visita nuestro Twitter" href="https://twitter.com/zooguadalajara" target="_blank">
-					<i class="fab fa-twitter-square"></i>
-			</div>
-			<nav class="main-menu">
-				<ul>
-					<li><a href="index.html" >Inicio</a></li>
-					<li><a href="animales.html" >Animales</a></li>
-					<li><a href="galeria.html" >Galeria</a></li>
-					<li><a href="configuración.html">Configuración</a></li>
-					<li><a href="paquetes.html" >Paquetes</a></li>
-					<li><a href="horarios.html" >Horarios</a></li>
-					<li><a href="contacto.html" >Contacto</a></li>
-				</ul>
-			</nav>
+		</div>
+		<nav class="main-menu" id="menu">
+			<ul>
+
+			</ul>
+		</nav>
 
 	</header>
 
 	<div class="infoAnimal">
-		
-<div align="center">
-	
+
+		<div align="center">
 
 
-<div class="card animal">
+
+			<div class="card animal">
 
 				<div class="card-animal">
 					<img id="imagenAnimal">
@@ -70,22 +62,28 @@
 				</div>
 
 				<p>
-					<label style="color:darkgreen; font-size: 20px">Nombre científico: <br></label><label id="nombre_cientifico"></label><br><br>
-					<label style="color:darkgreen; font-size: 20px">Clase: <br></label> <label id="clase"></label><br><br>
-					<label style="color:darkgreen; font-size: 20px">Orden: <br></label> <label id="orden"></label> <br><br>
-					<label style="color:darkgreen; font-size: 20px">Habitad: <br></label> <label id="habitad"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Nombre científico: <br></label><label
+						id="nombre_cientifico"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Clase: <br></label> <label
+						id="clase"></label><br><br>
+					<label style="color:darkgreen; font-size: 20px">Orden: <br></label> <label id="orden"></label>
+					<br><br>
+					<label style="color:darkgreen; font-size: 20px">Habitad: <br></label> <label
+						id="habitad"></label><br><br>
 					<label style="color:darkgreen; font-size: 20px">Zona: <br></label> <label id="zona"></label><br><br>
-					<label style="color:darkgreen; font-size: 20px">Existencia: <br></label> <label id="existencia"></label><br><br>
-				</p >
+					<label style="color:darkgreen; font-size: 20px">Existencia: <br></label> <label
+						id="existencia"></label><br><br>
+				</p>
 
 				<p style="text-align: justify;" id="descripcion"></p>
 
 			</div>
-</div>
+		</div>
 	</div>
 
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
 </body>
+
 </html>

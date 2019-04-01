@@ -8,8 +8,7 @@ include('conexionBD.php');
 
 if(Conectar())
 {
-    $query = "INSERT INTO zona (nombre, descripcion, imagen, visitas) VALUES
-    ('$nombre', '$descripcion', '$imagen', 0)";
+    $query = "INSERT INTO zona (nombre, descripcion, imagen, visitas) VALUES ('$nombre', '$descripcion', '$imagen', 0)";
 
     if(Enviar($query))
     {

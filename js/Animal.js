@@ -23,6 +23,7 @@ function registraAnimal() {
             }
             else {
                 alert("Se agregó el registro correctamente.");
+                window.location.href = "gestionAnimal.html"
             }
         }
     }
@@ -36,7 +37,6 @@ function cargarImagenAnimal() {
     var render = new FileReader();
     render.onload = function () {
         document.getElementById('imagenAnimal').setAttribute('src', render.result);
-        console.log(algo)
     }
     render.readAsDataURL(file);
 }
@@ -233,7 +233,8 @@ function filtrarAnimales(value) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "0") {
-                alert("No se puede mostrar el contenido.");
+                document.getElementById('animales').innerHTML = "";
+
             }
             else {
                 var obj = JSON.parse(this.responseText);
