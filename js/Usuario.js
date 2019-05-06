@@ -131,7 +131,11 @@ function mostrarUsuarios() {
 
                 var html = "";
                 obj.forEach(element => {
-                    html += "<div style=\"margin-top: 10px;\" class=\"administrador\">" + element.nombre + "<br>" + element.correo + "<div style=\"float: right;\" class=\"botones\"><button class=\"btn-contact modificar\" onclick=\"eliminarUsuario('" + element.id_usuario + "')\"> Eliminar </button><button class=\"btn-contact eliminar\" onclick=\"modificarUsuario('" + element.id_usuario + "')\"> Modificar </button></div></div>";
+                    html += `<div style="margin-top: 10px;" class="administrador">${element.nombre}<br> 
+                     ${element.correo}<div style="float: right;" class="botones"><button 
+                    class="btn-contact modificar" onclick="eliminarUsuario('${element.id_usuario}')"> 
+                    Eliminar </button><button class="btn-contact eliminar" onclick="modificarUsuario('${element.id_usuario}')">
+                    Modificar</button></div></div>`;
                 });
 
 
@@ -143,5 +147,98 @@ function mostrarUsuarios() {
     xmlhttp.open("GET", HOST + 'mostrarUsuarios.php', true);
     xmlhttp.send();
 }
+
+function enviarComentario(){
+    data = new FormData();
+    var usuario = JSON.parse(localStorage.getItem("sesion")).id_usuario;
+    var mensaje = document.getElementById('comentarioMensaje').value;
+
+    data.append('id_usuario', usuario);
+    data.append('comentario', mensaje);
+
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se pudo agregar el comentario.");
+            }
+            else {
+                alert("Se agregó el comentario correctamente.");
+                window.location.href = "comentariosUsuario.html";
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'registrarComentario.php', true);
+    xmlhttp.send(data);
+
+}
+
+function mostrarComentarios(usuario) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se puede mostrar el contenido.");
+            }
+            else {
+
+                var obj = JSON.parse(this.responseText);
+                var idUsuario = JSON.parse(localStorage.getItem("sesion")).id_usuario;
+
+                var html = "";
+
+                obj.forEach(element => {
+                    console.log(": " +  element.usuario + ", " + idUsuario);
+                    if(!usuario ||  element.usuario == idUsuario)
+                    {
+                        html += `<div style="margin-top: 10px;" class="administrador">Comentario: ${element.comentario}<br> 
+                        Respuesta: ${element.respuesta}</div>`;
+                        if(!usuario && element.estado == 0)
+                        {
+                            html += `<div>
+                            <textarea id="respuesta${element.id}" cols="30" rows="5" class="form-control" placeholder="Respuesta"></textarea>
+                            <button onclick="enviarRespuesta(${element.id})" class="btn-contact">Enviar</button>
+                            </div>`
+                        }
+                    }
+
+                });
+
+
+                document.getElementById('comentarios').innerHTML = html;
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'mostrarComentarios.php', true);
+    xmlhttp.send();
+}
+
+function enviarRespuesta(idComentario){
+    data = new FormData();
+    data.append('respuesta', document.getElementById('respuesta' + idComentario).value)
+    data.append('comentario', idComentario);
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "0") {
+                alert("No se pudo agregar la respuesta.");
+            }
+            else {
+                alert("Se agregó la respuesta correctamente.");
+                window.location.href = "comentariosAdministrador.html";
+            }
+        }
+    }
+    //dir del server a donde se va a conectar
+    xmlhttp.open("POST", HOST + 'registrarRespuesta.php', true);
+    xmlhttp.send(data);
+
+}
+
+
 
 
