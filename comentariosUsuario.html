@@ -11,12 +11,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-	<script src="js/main.js"></script>
+	<script src="js/Usuario.js"></script>
 
 </head>
 
-<body onload="validaSesion(2)">
-
+<body onload="validaSesion(1); mostrarComentarios(true)">
 	<header class="main-header">
 		<div class="logo">
 			<a href="index.html"><img src="imgs/logo.png" alt="Logo del zoologicogdl"> </a>
@@ -40,26 +39,33 @@
 
 	</header>
 
-	<div class="card horario">
+	<section class="contact">
 
-		<div class="card-hero">
-			<img src="imgs/info2.jpg">
+			<div id="comentarios" class="administradores">
+
+
+			</div>
+			<br><br>
+
+
+		<div class="container">
+
+
+			<div class="contact-form">
+				<textarea id="comentarioMensaje" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
+				<button onclick="enviarComentario()" class="btn-contact">Enviar</button>
+
+			</div>
+
 		</div>
 
-		<div class="card-body">
-			<h3 class="card-title">Nuestros horarios</h3>
+	</section>
 
-			<p class="card-list">
-				Lunes y martes : 1:00 pm a 5:00 pm (Atención al cliente, taquilla) <br>
-				Míercoles a domingo 10:00 am a 6:00 pm:
-			</p>
-
-		</div>
-
-	</div>
+	<br><br><br>
 	<footer class="footer">
 		<h3>Avenida Paseo del Zoológico 600 Guadalajara (México) zoo@zooguadalajara.com.mx (33) 36 74 44 88</h3>
 	</footer>
+
 </body>
 
 </html>
